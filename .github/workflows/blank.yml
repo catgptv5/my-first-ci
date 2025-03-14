@@ -1,0 +1,13 @@
+name: CIテスト
+on: [push]  # コードをアップしたら動くよ
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Pythonを準備
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: コードをテスト
+        run: python hello.py
